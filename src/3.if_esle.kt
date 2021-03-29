@@ -31,5 +31,5 @@ fun main (args: Array<String>){
             println("x no es ni 1 ni 2")
         }
     }
-    //when es lo mismo que un if pero diferente
+    //when es lo mismo que un if pero diferente 
 }
