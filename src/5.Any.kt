@@ -13,7 +13,9 @@ fun main(){
     val y: Any? = 2
     val apellidos: Any? = null
 
-    val numeros = listOf<Any>(15,"20",30.6,"cien")
+    val numeros = listOf<Any?>(15,"20",30.6,"cien", false, null)
+
+    //Any puede servir, por ejemplo, para crear listas de cualquier tipo de dato
 
     /*
         En definitiva Object es la super clase de todas las clases en Java, mientras que
