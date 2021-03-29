@@ -6,7 +6,6 @@ fun main(){
 
 
     //2. Declaracion de variables indicando el tipo de dato y el valor
-
     val a: Int = 1000
     val d: Double = 100.00
     val f: Float = 1000.00f
