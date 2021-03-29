@@ -58,5 +58,12 @@ fun main(){
         }
     }
 
+    //9. Recorre la lista edades e imprime por pantalla las edades impares usando foreach. Renombra la variable "it" a "edad"
+    println("\n-----EJERCICIO 9-----")
+    edades.forEach { edad -> //para darle un nombre a la variable it
+        if (edad%2 != 0) {
+            println(edad)
+        }
+    }
 }
 
