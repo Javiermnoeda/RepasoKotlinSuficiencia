@@ -111,6 +111,8 @@ fun main(args: Array<String>){
 
     for (i in 0..20){
         println("Estoy en la repeticion $i")
+        num8 += Random.nextInt(100)
+        if (num8>100) break // se puede hacer solo en una linea
     }
 
 }
