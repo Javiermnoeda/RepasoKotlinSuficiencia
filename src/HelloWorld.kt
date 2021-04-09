@@ -115,6 +115,70 @@ fun main(args: Array<String>){
         if (num8>100) break // se puede hacer solo en una linea
     }
 
+    //Lista vacia sin parámetros. Te fuerza a especificar el tipo de los parámetros
+    var listaVacia = listOf<Int>()
+
+    //Lista con parámetros. No te fuerza a especificar el tipo
+    val listaNumeros = listOf(1,2,3,4)
+
+    //Una lista mutable nos permite añadir y eliminar elementos
+    val listaNumerosMutable = mutableListOf(1,2,3,4)
+    listaNumerosMutable.add(5)
+
+    //Podemos transformar una lista no mutable en una copia de la lista mutable
+    var copiaListaVacia = listaVacia.toMutableList()
+    copiaListaVacia.add(1)
+    copiaListaVacia.add(2)
+    copiaListaVacia.add(3)
+    listaVacia = copiaListaVacia
+    println(listaVacia)
+
+    //para leer los elementos de una lista se hace:
+    copiaListaVacia[0]
+
+    //para eliminar un elemento
+    copiaListaVacia.remove(2) // Nos elimina el xq eliminamos a un elemento que es un 2
+    println(copiaListaVacia)
+    copiaListaVacia.removeAt(1) // nos elimina el 3 xq está en la segunda posición.
+    println(copiaListaVacia)
+
+    val listaPalabrasLargas = mutableListOf("Uno","Dos","Tres","Cuatro","Cinco","Seis","Siete")
+
+println("\n")
+
+    //Quiero que escriba los elementos cuyo numero de caracteres sea par
+    listaPalabrasLargas.forEach { numero ->
+        if (numero.length%2==0)  println("Elemento cuyo numero de caracteres sea par: $numero")
+    }
+
+println("\n")
+
+    //Quiero escribir los elementos cuya posicion sea par
+   for (posicion in listaPalabrasLargas.indices){
+       if (posicion%2==0) println("Elemento en posicion par (con bucle for): "+listaPalabrasLargas[posicion])
+   }
+
+println("\n")
+
+    //Hacer lo mismo pero con forEach
+    listaPalabrasLargas.forEachIndexed { posicion, elemento ->
+        if ( posicion % 2 == 0) println ("Elemento en posicion par (con bucle forEach): $elemento")
+    }
+
+    //Quiero que me escriba todos los elementos cuyo nombre contiene una letra a
+    listaPalabrasLargas.forEach{ palabra ->
+        if (palabra.contains('a')) println("\n El elemento que contiene la letra a es: $palabra") //deberia imprimir solo el cuatro
+
+    }
+
+println("\n")
+
+    // Quiero que me escriban todos los elementos cuyo nombre contiene una letra "o" y no está ni en la primera ni en la última posicion
+    listaPalabrasLargas.forEachIndexed { posicion, elemento ->
+        if (elemento.contains('o') && posicion!=0 && posicion != listaPalabrasLargas.size-1){
+            println("Elemento que contiene la letra o, y no esta en posiciones 0 o 6: $elemento")
+        }
+    }
 }
 
 
