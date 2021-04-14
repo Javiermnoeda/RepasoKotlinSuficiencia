@@ -178,6 +178,54 @@ println("\n")
             println("Elemento que contiene la letra o, y no esta en posiciones 0 o 6: $elemento")
         }
     }
+
+    //LLamar a la funcion
+    miFuncion()
+    miFuncion2(1)
+    miFuncion3(null)
+    miFuncion4(1,3)
+    miFuncion5(miVariable2 = 2,miVariable1 = 4) // no teinen por que estar en orden, le podemos dar el que queramos
+    miFuncion6(miVariable2 = 5)
+
+    escibeEsto("Heyyy que pasa")
+    escibeEsto(12)
+
 }
 
+//Funciones en Kotlin
+fun miFuncion(){
+println("Soy la funcion1")
+}
+
+fun miFuncion2(miVariable : Int){
+    println("Soy la funcion2 y escribo $miVariable")
+
+}
+
+fun miFuncion3(miVariable: Int?){
+    println("Soy la funcion3 y escribo $miVariable")
+}
+
+fun miFuncion4(miVariable1 : Int, miVariable2 : Int){
+    println("Soy la funcion4 y sumo ${miVariable1 + miVariable2}")
+}
+
+fun miFuncion5(miVariable1 : Int, miVariable2: Int) : Int{
+    println("Soy la funcion5 y devuelvo cosas")
+    return miVariable1 + miVariable2
+}
+
+fun miFuncion6(miVariable1 : Int = 0, miVariable2: Int = 0) : Int{
+    println("Soy la funcion6 y devuelvo cosas")
+    return miVariable1 + miVariable2
+}
+
+fun escibeEsto(numero: Int){
+    println("El numero es: $numero")
+}
+
+fun escibeEsto(texto: String){
+    //No tiene por que parecerse a fun escibeEsto(numero: Int) (no tiene ninguna relacion)
+    println("El texto es: $texto")
+}
 
