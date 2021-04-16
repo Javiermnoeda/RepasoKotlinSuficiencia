@@ -115,6 +115,8 @@ fun main(args: Array<String>){
         if (num8>100) break // se puede hacer solo en una linea
     }
 
+println("----------LISTAS-------------")
+
     //Lista vacia sin parámetros. Te fuerza a especificar el tipo de los parámetros
     var listaVacia = listOf<Int>()
 
@@ -179,6 +181,7 @@ println("\n")
         }
     }
 
+println("-----------FUNCIONES---------")
     //LLamar a la funcion
     miFuncion()
     miFuncion2(1)
@@ -186,6 +189,9 @@ println("\n")
     miFuncion4(1,3)
     miFuncion5(miVariable2 = 2,miVariable1 = 4) // no teinen por que estar en orden, le podemos dar el que queramos
     miFuncion6(miVariable2 = 5)
+
+    diHola()
+    diHola("Adiós")
 
     escibeEsto("Heyyy que pasa")
     escibeEsto(12)
@@ -195,6 +201,15 @@ println("\n")
 //Funciones en Kotlin
 fun miFuncion(){
 println("Soy la funcion1")
+}
+
+fun diHola(texto : String = "Hola"){
+    println("$texto")
+}
+
+//Dos funciones se pueden llamar igual si se cambian los parámetros de las mismas.
+fun miFuncion(variable : String){
+
 }
 
 fun miFuncion2(miVariable : Int){
