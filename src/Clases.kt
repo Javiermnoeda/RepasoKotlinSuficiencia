@@ -1,14 +1,27 @@
 fun main(){
     val nombreCompleto = NombreCompleto("Carlos","Tena")
-    val mascota = Mascota("Moway","Europeo Común",12)
-    mascota.setchip(123)
-    val persona = Persona(nombreCompleto,mascota)
+    val persona = Persona(nombreCompleto)
     persona.edad=39
     persona.setDni("12345678X")
     println(persona.toString())
+
+    val profesor = Profesor(NombreCompleto("Alfredo","XI"),111111L)
+    profesor.numeroLicencia
+    println(profesor.toString())
+
+    val secretario = Secretario(NombreCompleto("Juanjo","V"))
+    secretario.apuntaCita()
+
+    val alumno = Alumno(NombreCompleto("Rodrigo","Santos"))
+    alumno.copiarExamen()
+
+    val lista = listOf(profesor,secretario,alumno)
+    lista.forEach {
+        it.saludar()
+    }
 }
 
-class Persona(var nombreCompleto : NombreCompleto, var mascota: Mascota? = null){
+open class Persona(var nombreCompleto : NombreCompleto){
     // edad es publica, no pongo restricciones a que lo cambien
     var edad = 18
     private var DNI : String? = null
@@ -21,26 +34,47 @@ class Persona(var nombreCompleto : NombreCompleto, var mascota: Mascota? = null)
         }
     }
 
-    override fun toString(): String { //Sobreescribe el metodo String
-        mascota?.let { return "${nombreCompleto.nombre} con DNI $DNI y soy dueño de...${it.nombreMascota}"
-        } ?: run{
-            return "${nombreCompleto.nombre} con DNI $DNI y no tengo mascota"
-        }
-
-    }
-
 }
 
 class NombreCompleto( var nombre: String,var apellido: String){
 
 }
 
-class Mascota  (var nombreMascota: String,var raza: String, var edadMascota: Int){
-    private var numeroChip : Int? = null
-
-    fun setchip (numeroChip: Int){
-        this.numeroChip = numeroChip
+//Herencia
+class Profesor(nombre : NombreCompleto, var numeroLicencia: Long) : Persona(nombre), PuedeSaludar{
+    override fun toString(): String {
+        return("Soy ${nombreCompleto.nombre} y mi número de licencia es $numeroLicencia")
+    }
+    override fun saludar() {
+        println("Buenos alumnos que tal")
     }
 }
 
-//Una mascota tiene una o ninguna mascota. La mascota tiene nombre, tiene especie y tiene unos años de edad y un numero de chip
+class Alumno(nombre: NombreCompleto) : Persona(nombre), PuedeSaludar{
+    override fun saludar() {
+        println("Heyyyy que pasa bro")
+    }
+
+     fun copiarExamen(){
+        println("Me voy a copiar")
+    }
+}
+
+class Secretario(nombre : NombreCompleto) : Persona(nombre), PuedeSaludar {
+    override fun toString(): String {
+        return("Soy el secretario ${nombreCompleto.nombre}")
+    }
+
+    override fun saludar() {
+        println("Soy el secretario y te saludo")
+    }
+
+    fun apuntaCita(){
+        println("Okay, he apuntado la cita")
+    }
+
+}
+
+interface PuedeSaludar{
+    fun saludar()
+}
