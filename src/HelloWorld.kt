@@ -196,6 +196,8 @@ println("-----------FUNCIONES---------")
     escibeEsto("Heyyy que pasa")
     escibeEsto(12)
 
+
+println("------------LAMBDAS Y ORDEN---------------")
 }
 
 //Funciones en Kotlin
