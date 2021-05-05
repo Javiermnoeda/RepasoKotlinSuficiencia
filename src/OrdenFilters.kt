@@ -2,8 +2,24 @@
 var l1 = mutableListOf("Carlos", "Sergio", "Javier", "Ignacio","Manuel", "Stefanel", "Néstor")
 val listaVocales = mutableListOf("a", "e", "i", "o", "u")
 
-fun main() {
+class Humano(var nombre: String, var edad: Int)
+var l2 = mutableListOf(Humano("Carlos", 33), Humano("Sergio", 20), Humano("Javier", 21), Humano("Ignacio", 22),Humano("Manuel", 23), Humano("Stefanel", 24), Humano("Néstor", 25))
 
+class HumanoComparable(var nombre: String, var edad: Int) : Comparable<HumanoComparable>{
+    override fun compareTo(other: HumanoComparable): Int {
+        return edad - other.edad
+    }
+
+    override fun toString(): String {
+        return "$nombre de $edad años"
+    }
+}
+
+var l3 = mutableListOf(HumanoComparable("Carlos",33),HumanoComparable("Sergio",20),HumanoComparable("Javier",21),HumanoComparable("Ignacio",22),HumanoComparable("Manuel",23),HumanoComparable("Stefanel",24),HumanoComparable("Néstor",25))
+
+
+
+fun main() {
 
     println("Lista original = $l1")
 
@@ -46,9 +62,33 @@ fun main() {
     }
     println("Personas cuyo nombre tiene mas de 3 vocales distintas: $r6")
 
-    // Orden
+    //Ordenación
+
+    //Sort: Atentos que aquí no devuelve otra lista sino que ordena la original
+    //Lista ordenada alfabéticamente
     l1.sort()
-    println(l1)
+    println("Lista ordenada alfabéticamente $l1")
+
+
+    //Sorted: Atento que este si devuelve otra lista
+    //Lista ordenada Alfabéticamente
+    val o1 = l1.sorted()
+    println("Lista ordenada alfabéticamente tambien (pero con sorted)$o1")
+
+    //SortBy
+    //Lista ordenada por longitud del nombre
+    l1.sortByDescending { it.length }
+    println("Lista ordenada por longitud de nombre es: $l1")
+
+    /*
+    Sobre l2 NO nos deja hacer un sort. Esto es por que Humano no es una clase "comparable"
+    l2.sort()
+     */
+
+    //Sobre l3 SI que nos deja hacer un sort
+    l3.sort()
+    println("La lista ordenada por edad es:  $l3")
+
 }
 
 fun contarVocales (s: String):Int{
